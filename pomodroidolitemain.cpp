@@ -49,8 +49,6 @@ PomodroidoLiteMain::PomodroidoLiteMain(QWidget *parent) :
     connect(ui->action_databaseQuery, SIGNAL(triggered()), this, SLOT(actDBQueryMenu_clicked())); //	数据记录查询
     connect(ui->action_timeCountDown, SIGNAL(triggered()), this, SLOT(actTimeDownMenu_clicked())); //	倒计时小工具
 
-    //ui->lcdNumber->setStyleSheet("background-color: gray");
-
 }
 
 /*--------------------------------------------------------
@@ -147,7 +145,7 @@ void PomodroidoLiteMain::TimerInit(unsigned int timerNo, bool control)
             if (control == TimerOpen)
             {
                 m_pRefreshTomatoTimer = new QTimer;	//状态按更新定时器
-                m_pRefreshTomatoTimer->start(1000);	/*状态栏500ms定时*/
+                m_pRefreshTomatoTimer->start(1000);	/*状态栏1000ms定时*/
                 connect(m_pRefreshTomatoTimer, SIGNAL(timeout()), this, SLOT(RefreshTomatoSlot()));	// 状态栏刷新
             }
             else if (control == TimerClose)
@@ -169,7 +167,7 @@ void PomodroidoLiteMain::DataLoadInit()
 {
     QString nextDate = "";
     QDateTime dateTime = QDateTime::currentDateTime();
-    QDateTime afterOneMonthDateTime = dateTime.addYears(-4);
+    QDateTime afterOneMonthDateTime = dateTime.addYears(-4);    //过去四个月
     QString startDate = afterOneMonthDateTime.toString("yyyy.MM");	//得到遍历的起始时间
     int nEndDate = dateTime.toString("yyyy").toInt()+1;
     QString endDate = QString::number(nEndDate) +".1";//dateTime.toString("yyyy.MM");	//得到遍历的结束时间
@@ -194,7 +192,7 @@ void PomodroidoLiteMain::DataLoadInit()
             while (sql_query.next())
             {
                 QString date = sql_query.value(1).toString();
-                QString dateDatabase = date.left(date.length() - 15); //startDate.left(4) + "-" + date.left(date.length() - 9);	//临时
+                QString dateDatabase = date.left(date.length() - 15);
                 while ((startDate != endDate))
                 {
                     if (startDate == dateDatabase)
@@ -207,9 +205,6 @@ void PomodroidoLiteMain::DataLoadInit()
                     }
                     else
                     {
-//                        nextDate = DateCount(startDate);	//fuck this func //其实QT有现成的函数
-//                        yieldsInfo.vecYieldsDays[0].push_back(count);	//单日产量填入
-//                        yieldsInfo.vecDate.push_back(startDate);// 日期填入
                         afterOneMonthDateTime = afterOneMonthDateTime.addMonths(1);
                         startDate = afterOneMonthDateTime.toString("yyyy.MM");	//得到遍历的起始时间
                         nextDate = startDate;
@@ -318,7 +313,6 @@ void PomodroidoLiteMain::ReadIniConfig()
 --------------------------------------------------------*/
 void PomodroidoLiteMain::actVersionMenu_clicked()
 {
-    //QMessageBox::information(this, "版本号", QStringLiteral(" Version : 1.0.0 \n Data : 2018.11.26 \n Designer : Eric Chiu(榨菜)"));
     AboutIntroDialog aboutIntroDialog;
     if (aboutIntroDialog.exec() == QDialog::Accepted)
     {
@@ -352,7 +346,6 @@ void PomodroidoLiteMain::actTimeDownMenu_clicked()
 
 void PomodroidoLiteMain::mousePressEvent(QMouseEvent* event)
 {
-//    if(event->button()==Qt::LeftButton)
-//        int s;
+
 }
 
