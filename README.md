@@ -8,13 +8,17 @@ This pomodoro software USES Q3DBars/QtCharts/LiteSQL and so on.
 
 #2.detail 
 -The main interface is as follows：
+
 ![image](https://github.com/graylira/PomodroidoLite/blob/master/Introduce%20image/intro_1.bmp)
 
 -The database interface is as follows：
+
 ![image](https://github.com/graylira/PomodroidoLite/blob/master/Introduce%20image/intro_2.bmp)
 
 -The setting interface is as follows：
+
 ![image](https://github.com/graylira/PomodroidoLite/blob/master/Introduce%20image/intro_3.bmp)
 
 -The intro interface is as follows：
+
 ![image](https://github.com/graylira/PomodroidoLite/blob/master/Introduce%20image/intro_4.bmp)
