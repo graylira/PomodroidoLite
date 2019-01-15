@@ -22,4 +22,5 @@ This pomodoro software USES Q3DBars/QtCharts/LiteSQL and so on.
 ![image](https://github.com/graylira/PomodroidoLite/blob/master/Introduce%20image/intro_4.bmp)
 
 #3.I wish
+
 This software is written for my soon-to-be born baby. I hope he can cherish his time and study efficiently in the future.
