@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SetTomatoDialog</class>
+ <widget class="QDialog" name="SetTomatoDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>280</width>
+    <height>232</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>🍅设置</string>
+  </property>
+  <widget class="QLabel" name="label_background">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>281</width>
+     <height>231</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/pic/pic2.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_ok">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>190</y>
+     <width>81</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+   </property>
+   <property name="text">
+    <string>设置好啦！</string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="layoutWidget">
+   <property name="geometry">
+    <rect>
+     <x>30</x>
+     <y>20</y>
+     <width>201</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_setTime">
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+      </property>
+      <property name="text">
+       <string>番茄时间</string>
+      </property>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QLineEdit" name="lineEdit_setTime"/>
+    </item>
+    <item row="0" column="2">
+     <widget class="QLabel" name="label_unit">
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+      </property>
+      <property name="text">
+       <string>分钟</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_day">
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+      </property>
+      <property name="text">
+       <string>每日目标🍅</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="1">
+     <widget class="QLineEdit" name="lineEdit_day"/>
+    </item>
+    <item row="1" column="2">
+     <widget class="QLabel" name="label_g1">
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+      </property>
+      <property name="text">
+       <string>个</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_month">
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+      </property>
+      <property name="text">
+       <string>每月目标🍅</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="1">
+     <widget class="QLineEdit" name="lineEdit_month"/>
+    </item>
+    <item row="2" column="2">
+     <widget class="QLabel" name="label_g2">
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+      </property>
+      <property name="text">
+       <string>个</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QLabel" name="label_year">
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+      </property>
+      <property name="text">
+       <string>年度目标🍅</string>
+      </property>
+     </widget>
+    </item>
+    <item row="3" column="1">
+     <widget class="QLineEdit" name="lineEdit_year"/>
+    </item>
+    <item row="3" column="2">
+     <widget class="QLabel" name="label_g3">
+      <property name="styleSheet">
+       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+      </property>
+      <property name="text">
+       <string>个</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>pushButton_ok</sender>
+   <signal>clicked()</signal>
+   <receiver>SetTomatoDialog</receiver>
+   <slot>setOkSlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>239</x>
+     <y>199</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>271</x>
+     <y>193</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>setOkSlot()</slot>
+ </slots>
+</ui>

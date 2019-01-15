@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>pic/pomodroPic.png</file>
+        <file>pic/pomodroPicNew.png</file>
+        <file>pic/historyoftomatoes.png</file>
+        <file>pic/pic1.png</file>
+        <file>pic/pic2.png</file>
+        <file>pic/historyoftomatoes2.png</file>
+        <file>pic/1.png</file>
+        <file>pic/2.png</file>
+        <file>pic/3.png</file>
+        <file>pic/4.png</file>
+    </qresource>
+</RCC>

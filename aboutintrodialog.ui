@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>AboutIntroDialog</class>
+ <widget class="QDialog" name="AboutIntroDialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>518</width>
+    <height>410</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>介绍</string>
+  </property>
+  <widget class="QLabel" name="label_background">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>521</width>
+     <height>411</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/pic/4.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_pic1">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>280</y>
+     <width>111</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/pic/1.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_pic2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>10</y>
+     <width>121</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">image: url(:/pic/3.png);</string>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_intro_4">
+   <property name="geometry">
+    <rect>
+     <x>20</x>
+     <y>130</y>
+     <width>491</width>
+     <height>91</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+   </property>
+   <property name="text">
+    <string>番茄工作法是简单易行的时间管理方法，是由弗朗西斯科·西里洛于1992年
+创立的一种相对于GTD更微观的时间管理方法。
+使用番茄工作法，选择一个待完成的任务，将番茄时间设为25分钟，
+专注工作，中途不允许做任何与该任务无关的事，直到番茄时钟响起，
+然后在纸上画一个X短暂休息一下（5分钟就行），每4个番茄时段多休
+息一会儿，番茄工作法极大地提高了工作的效率，还会有意想不到的成就感。</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="label_intro_5">
+   <property name="geometry">
+    <rect>
+     <x>390</x>
+     <y>380</y>
+     <width>181</width>
+     <height>19</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">font: 12pt &quot;Eras Bold ITC&quot;;</string>
+   </property>
+   <property name="text">
+    <string>for my baby </string>
+   </property>
+  </widget>
+  <widget class="QWidget" name="">
+   <property name="geometry">
+    <rect>
+     <x>120</x>
+     <y>320</y>
+     <width>219</width>
+     <height>71</height>
+    </rect>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QLabel" name="label_intro_3">
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;Eras Bold ITC&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Version : 1.0.0</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QLabel" name="label_intro_2">
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;Eras Bold ITC&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Modified Date : 2018.11.24</string>
+      </property>
+     </widget>
+    </item>
+    <item row="2" column="0">
+     <widget class="QLabel" name="label_intro">
+      <property name="styleSheet">
+       <string notr="true">font: 12pt &quot;Eras Bold ITC&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Designer : Stackflow菜</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
