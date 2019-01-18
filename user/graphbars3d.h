@@ -19,7 +19,7 @@ using namespace QtDataVisualization;
 class GraphBars3D : public QObject
 {
 public:
-    explicit GraphBars3D(Q3DBars *bargraph,QWidget* pUi);
+    explicit GraphBars3D(Q3DBars *bargraph,QWidget* pUi,const QDateTime& dateTime);
     ~GraphBars3D();
     QString GetCurSelect()const;
 

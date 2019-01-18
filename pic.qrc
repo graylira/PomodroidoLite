@@ -10,5 +10,9 @@
         <file>pic/2.png</file>
         <file>pic/3.png</file>
         <file>pic/4.png</file>
+        <file>pic/backgroundEdit.png</file>
+        <file>pic/5.png</file>
+        <file>pic/lock.png</file>
+        <file>pic/uploading.png</file>
     </qresource>
 </RCC>

@@ -304,10 +304,27 @@
     </hint>
    </hints>
   </connection>
+  <connection>
+   <sender>pushButton_diary</sender>
+   <signal>clicked()</signal>
+   <receiver>PomodroidoLiteMain</receiver>
+   <slot>createDiarySlot()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>902</x>
+     <y>367</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>951</x>
+     <y>351</y>
+    </hint>
+   </hints>
+  </connection>
  </connections>
  <slots>
   <slot>setTomatoSlot()</slot>
   <slot>createTomatoSlot()</slot>
   <slot>discardTomatoSlot()</slot>
+  <slot>createDiarySlot()</slot>
  </slots>
 </ui>
