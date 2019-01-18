@@ -28,7 +28,15 @@ Of course, this software is open source, you can participate in it and use it, w
 
 ![image](https://github.com/graylira/PomodroidoLite/blob/master/Introduce%20image/intro_4.bmp)
 
+<<<<<<< HEAD
 ## 4.follow-up
+=======
+-The Notepad UI is as follows：
+
+![image](https://github.com/graylira/PomodroidoLite/blob/master/Introduce%20image/intro_5.bmp)
+
+### 4.follow-up
+>>>>>>> origin/feature/The_diary_function
 
 For work reasons, the software only completes basic functions, it will be complete in the future.
 
