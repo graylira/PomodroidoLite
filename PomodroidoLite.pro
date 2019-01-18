@@ -33,7 +33,9 @@ SOURCES += \
     databaseoperate.cpp \
     dbquerydialog.cpp \
     aboutintrodialog.cpp \
-    gadget/countdowntimer.cpp
+    gadget/countdowntimer.cpp \
+    createnotepaddialog.cpp \
+    savenotepadinidialog.cpp
 
 HEADERS += \
         pomodroidolitemain.h \
@@ -43,14 +45,18 @@ HEADERS += \
     databaseoperate.h \
     dbquerydialog.h \
     aboutintrodialog.h \
-    gadget/countdowntimer.h
+    gadget/countdowntimer.h \
+    createnotepaddialog.h \
+    savenotepadinidialog.h
 
 FORMS += \
         pomodroidolitemain.ui \
     settomatodialog.ui \
     dbquerydialog.ui \
     aboutintrodialog.ui \
-    gadget/countdowntimer.ui
+    gadget/countdowntimer.ui \
+    createnotepaddialog.ui \
+    savenotepadinidialog.ui
 
 DISTFILES +=
 

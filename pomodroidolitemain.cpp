@@ -15,6 +15,7 @@
 #include "ui_pomodroidolitemain.h"
 #include "user/graphbars3d.h"
 #include "settomatodialog.h"
+#include "createnotepaddialog.h"
 #include "dbquerydialog.h"
 #include "gadget/countdowntimer.h"
 #include "aboutintrodialog.h"
@@ -38,11 +39,12 @@ PomodroidoLiteMain::PomodroidoLiteMain(QWidget *parent) :
     ui(new Ui::PomodroidoLiteMain)
 {
     ui->setupUi(this);
+    m_dateTime = QDateTime::currentDateTime();
     m_pBars = new Q3DBars();
-    m_pModifier = new GraphBars3D(m_pBars,ui->widget_3DBars);
+    m_pModifier = new GraphBars3D(m_pBars,ui->widget_3DBars,m_dateTime);
     TimerInit(TimerStatusBar,TimerOpen);    //状态栏更新
     ReadIniConfig();    //配置表更新
-    DataLoadInit();     //数据库载入
+    DataLoadInit(m_dateTime);     //数据库载入
     RefreshTimeStrDis();    //倒计时字符更新
     qInfo () << "Program up and running...";    //日志记录
     connect(ui->action_Version_Info, SIGNAL(triggered()), this, SLOT(actVersionMenu_clicked())); //	关于版本
@@ -91,6 +93,8 @@ void PomodroidoLiteMain::setTomatoSlot()
 void PomodroidoLiteMain::createTomatoSlot()
 {
     ui->pushButton_create->setEnabled(false);
+    ui->pushButton_diary->setEnabled(false);
+    ui->pushButton_set_goal->setEnabled(false);
     ReadIniConfig();
     TimerInit(TimerBeginTomato,TimerOpen);
     m_strStartTime = m_getTime.toString("yyyy.MM.dd hh:mm:ss ddd");
@@ -107,6 +111,8 @@ void PomodroidoLiteMain::createTomatoSlot()
 void PomodroidoLiteMain::discardTomatoSlot()
 {
     ui->pushButton_create->setEnabled(true);
+    ui->pushButton_diary->setEnabled(true);
+    ui->pushButton_set_goal->setEnabled(true);
     TimerInit(TimerBeginTomato,TimerClose);
     TomatoPara.Second = 0;
     ui->lcdNumber->display("00:00");
@@ -114,6 +120,21 @@ void PomodroidoLiteMain::discardTomatoSlot()
     m_strEndTime = "";
     qInfo () << "Pomodoro Have been discarded!";
     QMessageBox::information(this, "提示",QStringLiteral("🍅已被丢弃！"));
+}
+
+/*--------------------------------------------------------
+函数名：createDiarySlot()
+功能：创建日记
+创建：赵泽文
+出口：
+入口：
+--------------------------------------------------------*/
+void PomodroidoLiteMain::createDiarySlot()
+{
+    CreateNotepadDialog createNotepadDialog;
+    if (createNotepadDialog.exec() == QDialog::Accepted)
+    {
+    }
 }
 
 
@@ -163,10 +184,9 @@ void PomodroidoLiteMain::TimerInit(unsigned int timerNo, bool control)
 出口：
 入口：
 --------------------------------------------------------*/
-void PomodroidoLiteMain::DataLoadInit()
+void PomodroidoLiteMain::DataLoadInit(const QDateTime& dateTime)
 {
     QString nextDate = "";
-    QDateTime dateTime = QDateTime::currentDateTime();
     QDateTime afterOneMonthDateTime = dateTime.addYears(-4);    //过去四个月
     QString startDate = afterOneMonthDateTime.toString("yyyy.MM");	//得到遍历的起始时间
     int nEndDate = dateTime.toString("yyyy").toInt()+1;
@@ -177,7 +197,7 @@ void PomodroidoLiteMain::DataLoadInit()
     if(DBOperate->CreateConnect(DBConect,"my_LocalDataBase","QSQLITE") == 0)    //连接数据库
     {
         m_strStatusBarInfo = "  🍅仓库已连接";
-        pKeyValue = DBOperate->GetLastPKey();
+        m_nKeyValue = DBOperate->GetLastPKey();
 
 
         QSqlQuery sql_query;
@@ -258,11 +278,11 @@ void PomodroidoLiteMain::RefreshTomatoSlot()
     }
     else
     {
-        pKeyValue++;
+        m_nKeyValue++;
         ui->pushButton_create->setEnabled(true);
         QMessageBox::information(this, "提示",QStringLiteral("🍅已完成！"));
         m_strEndTime = m_getTime.toString("yyyy.MM.dd hh:mm:ss ddd");
-        DBOperate->SaveToDatabase(DBConect,pKeyValue,m_strStartTime,m_strEndTime);
+        DBOperate->SaveToDatabase(DBConect,m_nKeyValue,m_strStartTime,m_strEndTime);
         qInfo () << "Pomodoro Have Finished！";
         TimerInit(TimerBeginTomato,TimerClose);
     }
@@ -334,7 +354,13 @@ void PomodroidoLiteMain::actDBQueryMenu_clicked()
     }
 }
 
-
+/*--------------------------------------------------------
+函数名：actTimeDownMenu_clicked()
+功能：菜单栏倒计时模块
+创建：赵泽文
+出口：
+入口：
+--------------------------------------------------------*/
 void PomodroidoLiteMain::actTimeDownMenu_clicked()
 {
     CountDownTimer countDownDialog;
@@ -343,7 +369,13 @@ void PomodroidoLiteMain::actTimeDownMenu_clicked()
     }
 }
 
-
+/*--------------------------------------------------------
+函数名：mousePressEvent(QMouseEvent* event)
+功能：鼠标事件
+创建：赵泽文
+出口：
+入口：
+--------------------------------------------------------*/
 void PomodroidoLiteMain::mousePressEvent(QMouseEvent* event)
 {
 

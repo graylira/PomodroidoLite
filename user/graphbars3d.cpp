@@ -15,7 +15,7 @@ using namespace QtDataVisualization;
 
 const QString celsiusString ="个";
 
-GraphBars3D::GraphBars3D(Q3DBars *bargraph, QWidget *pUi)
+GraphBars3D::GraphBars3D(Q3DBars *bargraph, QWidget *pUi,const QDateTime& dateTime)
     : m_graph(bargraph),
       m_fXRotation(0.0f),
       m_fYRotation(0.0f),
@@ -38,9 +38,15 @@ GraphBars3D::GraphBars3D(Q3DBars *bargraph, QWidget *pUi)
     m_graph->activeTheme()->setLabelBackgroundEnabled(true);
     m_graph->setMultiSeriesUniform(true);
 
+    int n = dateTime.toString("yyyy").toInt()-3;
     //这里为测试用
     m_months << "一月" << "二月" << "三月" << "四月" << "五月" << "六月" << "七月" << "八月" << "九月" << "十月" << "十一月" << "十二月";
-    m_years << "2015" << "2016" << "2017" << "2018";
+    for(int i = 0;i < 4;i++)
+    {
+        QString s = QString::number(n);
+        m_years<<s;
+        n++;
+    }
 
     m_temperatureAxis->setTitle("🍅数目");
     m_temperatureAxis->setSegmentCount(m_nSegments);

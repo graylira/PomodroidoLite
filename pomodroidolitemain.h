@@ -23,7 +23,7 @@ public:
     void TimerInit(unsigned int timerNo, bool control);
     inline void RefreshTimeStrDis();
     void ReadIniConfig();
-    void DataLoadInit();
+    void DataLoadInit(const QDateTime &dateTime);
 
 protected:
     //鼠标点击事件
@@ -37,6 +37,7 @@ public slots:
     void setTomatoSlot();
     void createTomatoSlot();
     void discardTomatoSlot();
+    void createDiarySlot();
     void RefreshStatusBarSlot();
     void RefreshTomatoSlot();
     void actVersionMenu_clicked();
@@ -55,7 +56,8 @@ private:
     QString m_strStartTime;
     QString m_strEndTime;
     QDateTime m_getTime;
-    uint32_t pKeyValue;
+    uint32_t m_nKeyValue;
+    QDateTime m_dateTime;
 };
 
 #endif // POMODROIDOLITEMAIN_H
