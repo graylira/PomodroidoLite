@@ -35,7 +35,9 @@ SOURCES += \
     aboutintrodialog.cpp \
     gadget/countdowntimer.cpp \
     createnotepaddialog.cpp \
-    savenotepadinidialog.cpp
+    savenotepadinidialog.cpp \
+    button.cpp \
+    calculator.cpp
 
 HEADERS += \
         pomodroidolitemain.h \
@@ -47,7 +49,9 @@ HEADERS += \
     aboutintrodialog.h \
     gadget/countdowntimer.h \
     createnotepaddialog.h \
-    savenotepadinidialog.h
+    savenotepadinidialog.h \
+    button.h \
+    calculator.h
 
 FORMS += \
         pomodroidolitemain.ui \

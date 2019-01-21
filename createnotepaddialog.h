@@ -13,13 +13,15 @@ class CreateNotepadDialog : public QDialog
 
 public:
     explicit CreateNotepadDialog(QWidget *parent = 0);
+     CreateNotepadDialog(const unsigned int &PomodroidoID, QWidget *parent = 0);
     ~CreateNotepadDialog();
 
 private:
     Ui::CreateNotepadDialog *ui;
+    unsigned int m_nPomodroidoID;
 
 public slots:
-    void upLoadingSlot();
+    bool upLoadingSlot();
     void ShowContextMenu(const QPoint& );
     void DeleteIniSort();
     void loadIniInfoSlot();

@@ -10,6 +10,18 @@
     <height>232</height>
    </rect>
   </property>
+  <property name="minimumSize">
+   <size>
+    <width>280</width>
+    <height>232</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>280</width>
+    <height>232</height>
+   </size>
+  </property>
   <property name="windowTitle">
    <string>🍅设置</string>
   </property>
@@ -39,7 +51,7 @@
     </rect>
    </property>
    <property name="styleSheet">
-    <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+    <string notr="true">font: 9pt &quot;微软雅黑&quot;;</string>
    </property>
    <property name="text">
     <string>设置好啦！</string>
@@ -50,7 +62,7 @@
     <rect>
      <x>30</x>
      <y>20</y>
-     <width>201</width>
+     <width>211</width>
      <height>151</height>
     </rect>
    </property>
@@ -58,10 +70,10 @@
     <item row="0" column="0">
      <widget class="QLabel" name="label_setTime">
       <property name="styleSheet">
-       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+       <string notr="true">font: 9pt &quot;微软雅黑&quot;;</string>
       </property>
       <property name="text">
-       <string>番茄时间</string>
+       <string>番茄时间：</string>
       </property>
      </widget>
     </item>
@@ -71,7 +83,7 @@
     <item row="0" column="2">
      <widget class="QLabel" name="label_unit">
       <property name="styleSheet">
-       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+       <string notr="true">font: 9pt &quot;微软雅黑&quot;;</string>
       </property>
       <property name="text">
        <string>分钟</string>
@@ -81,7 +93,7 @@
     <item row="1" column="0">
      <widget class="QLabel" name="label_day">
       <property name="styleSheet">
-       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+       <string notr="true">font: 9pt &quot;微软雅黑&quot;;</string>
       </property>
       <property name="text">
        <string>每日目标🍅</string>
@@ -94,7 +106,7 @@
     <item row="1" column="2">
      <widget class="QLabel" name="label_g1">
       <property name="styleSheet">
-       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+       <string notr="true">font: 9pt &quot;微软雅黑&quot;;</string>
       </property>
       <property name="text">
        <string>个</string>
@@ -104,7 +116,7 @@
     <item row="2" column="0">
      <widget class="QLabel" name="label_month">
       <property name="styleSheet">
-       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+       <string notr="true">font: 9pt &quot;微软雅黑&quot;;</string>
       </property>
       <property name="text">
        <string>每月目标🍅</string>
@@ -117,7 +129,7 @@
     <item row="2" column="2">
      <widget class="QLabel" name="label_g2">
       <property name="styleSheet">
-       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+       <string notr="true">font: 9pt &quot;微软雅黑&quot;;</string>
       </property>
       <property name="text">
        <string>个</string>
@@ -127,7 +139,7 @@
     <item row="3" column="0">
      <widget class="QLabel" name="label_year">
       <property name="styleSheet">
-       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+       <string notr="true">font: 9pt &quot;微软雅黑&quot;;</string>
       </property>
       <property name="text">
        <string>年度目标🍅</string>
@@ -140,7 +152,7 @@
     <item row="3" column="2">
      <widget class="QLabel" name="label_g3">
       <property name="styleSheet">
-       <string notr="true">font: 10pt &quot;幼圆&quot;;</string>
+       <string notr="true">font: 9pt &quot;微软雅黑&quot;;</string>
       </property>
       <property name="text">
        <string>个</string>

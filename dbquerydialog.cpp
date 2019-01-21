@@ -48,6 +48,7 @@ DBQueryDialog::DBQueryDialog(QWidget *parent) :
         sqlModelAll->setHeaderData(1, Qt::Horizontal, "起始时间");
         sqlModelAll->setHeaderData(2, Qt::Horizontal, "结束时间");
         ui->tableView_DBquery->setModel(sqlModelAll);
+        ui->tableView_DBquery->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
     }
     ui->tableView_DBquery->setColumnWidth(0, 50);

@@ -20,6 +20,7 @@
 #include "gadget/countdowntimer.h"
 #include "aboutintrodialog.h"
 #include "databaseoperate.h"
+#include "calculator.h"
 
 using namespace QtCharts;
 using namespace QtDataVisualization;
@@ -47,10 +48,11 @@ PomodroidoLiteMain::PomodroidoLiteMain(QWidget *parent) :
     DataLoadInit(m_dateTime);     //数据库载入
     RefreshTimeStrDis();    //倒计时字符更新
     qInfo () << "Program up and running...";    //日志记录
+    ui->pushButton_discard->setEnabled(false);
     connect(ui->action_Version_Info, SIGNAL(triggered()), this, SLOT(actVersionMenu_clicked())); //	关于版本
     connect(ui->action_databaseQuery, SIGNAL(triggered()), this, SLOT(actDBQueryMenu_clicked())); //	数据记录查询
     connect(ui->action_timeCountDown, SIGNAL(triggered()), this, SLOT(actTimeDownMenu_clicked())); //	倒计时小工具
-
+    connect(ui->action_calculatorLite, SIGNAL(triggered()), this, SLOT(action_calculatorLite())); //	计算器小工具
 }
 
 /*--------------------------------------------------------
@@ -92,9 +94,19 @@ void PomodroidoLiteMain::setTomatoSlot()
 --------------------------------------------------------*/
 void PomodroidoLiteMain::createTomatoSlot()
 {
+    QMessageBox message(QMessageBox::Warning, QStringLiteral("提示"), QStringLiteral("是否需要记录这个番茄？"),
+        QMessageBox::Yes | QMessageBox::No, NULL);
+    if (message.exec() == QMessageBox::Yes)
+    {
+        CreateNotepadDialog createNotepadDialog(m_nKeyValue);
+        if (createNotepadDialog.exec() == QDialog::Accepted)
+        {
+        }
+    }
     ui->pushButton_create->setEnabled(false);
     ui->pushButton_diary->setEnabled(false);
     ui->pushButton_set_goal->setEnabled(false);
+    ui->pushButton_discard->setEnabled(true);
     ReadIniConfig();
     TimerInit(TimerBeginTomato,TimerOpen);
     m_strStartTime = m_getTime.toString("yyyy.MM.dd hh:mm:ss ddd");
@@ -113,6 +125,7 @@ void PomodroidoLiteMain::discardTomatoSlot()
     ui->pushButton_create->setEnabled(true);
     ui->pushButton_diary->setEnabled(true);
     ui->pushButton_set_goal->setEnabled(true);
+    ui->pushButton_discard->setEnabled(false);
     TimerInit(TimerBeginTomato,TimerClose);
     TomatoPara.Second = 0;
     ui->lcdNumber->display("00:00");
@@ -367,6 +380,19 @@ void PomodroidoLiteMain::actTimeDownMenu_clicked()
     if (countDownDialog.exec() == QDialog::Accepted)
     {
     }
+}
+
+/*--------------------------------------------------------
+函数名：action_calculatorLite()
+功能：菜单栏计算器模块
+创建：赵泽文
+出口：
+入口：
+--------------------------------------------------------*/
+void PomodroidoLiteMain::action_calculatorLite()
+{
+    Calculator* countDownDialog = new Calculator;
+    countDownDialog->show();
 }
 
 /*--------------------------------------------------------

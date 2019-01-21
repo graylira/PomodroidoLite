@@ -43,6 +43,7 @@ public slots:
     void actVersionMenu_clicked();
     void actDBQueryMenu_clicked();
     void actTimeDownMenu_clicked();
+    void action_calculatorLite();
 private:
     Ui::PomodroidoLiteMain *ui;
     GraphBars3D *m_pModifier;

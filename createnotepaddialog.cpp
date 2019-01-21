@@ -17,6 +17,18 @@ CreateNotepadDialog::CreateNotepadDialog(QWidget *parent) :
     ui->setupUi(this);
     ListInit();
     ui->listWidget_record->setContextMenuPolicy(Qt::CustomContextMenu);
+    m_nPomodroidoID = -1;
+    connect(ui->listWidget_record, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(ShowContextMenu(const QPoint&)));	//配置表table 增加右键菜单
+}
+
+CreateNotepadDialog::CreateNotepadDialog(const unsigned int& PomodroidoID,QWidget *parent) :
+    QDialog(parent),
+    ui(new Ui::CreateNotepadDialog)
+{
+    ui->setupUi(this);
+    ListInit();
+    m_nPomodroidoID = PomodroidoID;
+    ui->listWidget_record->setContextMenuPolicy(Qt::CustomContextMenu);
     connect(ui->listWidget_record, SIGNAL(customContextMenuRequested(const QPoint&)), this, SLOT(ShowContextMenu(const QPoint&)));	//配置表table 增加右键菜单
 }
 
@@ -57,31 +69,40 @@ void CreateNotepadDialog::ListInit()
     delete fileInfo;
 }
 
-void CreateNotepadDialog::upLoadingSlot()
+bool CreateNotepadDialog::upLoadingSlot()
 {
     SaveNotepadIniDialog saveNotepadIniDialog;
+    QString txtTypeRemark;
     QString curName, text, qPath;
     if (saveNotepadIniDialog.exec() == QDialog::Accepted)
     {
         curName = saveNotepadIniDialog.GetIniName();
+        if(m_nPomodroidoID==-1)
+            txtTypeRemark = "普通记事本-";
+        else
+            txtTypeRemark = "番茄-" + QString::number(m_nPomodroidoID)+"-";
         /*存入当前配置名到系统配置*/
         QSettings *configIniWriteSetting = new QSettings(Files_Path, QSettings::IniFormat);
         configIniWriteSetting->setValue(Config_Setting_IniName, curName);
         delete configIniWriteSetting;
 
         /*分选配置*/
-        qPath = Base_Path + curName;
+        qPath = Base_Path + txtTypeRemark + curName;
         QSettings *configIniWriteSettingUser = new QSettings(qPath, QSettings::IniFormat);
-
+        QFileInfo fileInfo(qPath);
+        if(fileInfo.isFile())
+        {
+            QMessageBox::information(this, "提示","日志已存在！");//return -1;
+            return false;
+        }
         /*用户信息配置*/
-//        qStr = "ui->lineEdit_Name->text()";
-//        configIniWriteSettingUser->setValue("Config_USER_ProductName", qStr);
         text = ui->textEdit_content->toPlainText();
 
         QFile f(qPath);
         if(!f.open(QIODevice::WriteOnly | QIODevice::Text))
         {
            QMessageBox::information(this, "提示","写入失败！");//return -1;
+           return false;
         }
         QTextStream txtOutput(&f);
         txtOutput << text << endl;
@@ -90,6 +111,7 @@ void CreateNotepadDialog::upLoadingSlot()
         ListInit();
         delete configIniWriteSettingUser;
     }
+    return true;
 }
 
 
@@ -139,7 +161,7 @@ void CreateNotepadDialog::DeleteIniSort()
         delete configIniWriteSetting;
     }
     else if (num == 0)
-        QMessageBox::information(this, "提示", "无任何配置信息！");
+        QMessageBox::information(this, "提示", "无任何日志信息！");
     delete item;
 }
 
@@ -165,7 +187,7 @@ void CreateNotepadDialog::loadIniInfoSlot()
     QString lineStr;
     while(!txtInput.atEnd())
     {
-        lineStr = txtInput.readLine();
+        lineStr += txtInput.readLine();
     }
     f.close();
 
